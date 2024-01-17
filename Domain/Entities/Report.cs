@@ -12,9 +12,10 @@ public class Report : Entity<Guid>
 {
     public ReportStatus ReportStatus { get; set; }
 
+    public virtual ICollection<ReportDetail> ReportDetails { get; set; }
     public Report()
     {
-        
+        ReportDetails = new HashSet<ReportDetail>();
     }
 
     public Report(Guid id, ReportStatus reportStatus)

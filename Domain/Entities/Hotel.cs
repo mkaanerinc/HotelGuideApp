@@ -14,9 +14,11 @@ public class Hotel : Entity<Guid>
     public string ManagerLastName { get; set; }
     public string CompanyName { get; set; }
 
+    public virtual ICollection<ContactInformation> ContactInformations { get; set; }
+
     public Hotel()
     {
-        
+        ContactInformations = new HashSet<ContactInformation>();
     }
 
     public Hotel(Guid id, string managerFirstName, string managerLastName, string companyName)

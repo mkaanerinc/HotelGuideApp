@@ -14,6 +14,8 @@ public class ReportDetail : Entity<Guid>
     public int HotelCount { get; set; }
     public int PhoneCount { get; set; }
 
+    public virtual Report? Report { get; set; }
+
     public ReportDetail()
     {
         

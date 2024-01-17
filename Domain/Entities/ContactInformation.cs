@@ -14,6 +14,8 @@ public class ContactInformation : Entity<Guid>
     public InfoType InfoType { get; set; }
     public string InfoContent { get; set; }
 
+    public virtual Hotel? Hotel { get; set; }
+
     public ContactInformation()
     {
         
