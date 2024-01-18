@@ -1,7 +1,11 @@
-﻿using Core.Application.Pipelines.Validation;
+﻿using Application.Services.MessageBrokers;
+using Application.Services.MessageBrokers.RabbitMQ;
+using Core.Application.Pipelines.Validation;
 using Core.Application.Rules;
 using FluentValidation;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +17,8 @@ namespace Application;
 
 public static class ApplicationServiceRegistiration
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -27,6 +32,15 @@ public static class ApplicationServiceRegistiration
 
             configuration.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
         });
+
+        services.AddSingleton(x => new ConnectionFactory()
+        {
+            Uri = new Uri(configuration.GetSection("MessageBrokers:RabbitMQ:AMQPUrl").Value),
+            DispatchConsumersAsync = true
+        });
+
+        services.AddSingleton<RabbitMQClientService>();
+        services.AddSingleton<IMessageBrokerHelper,RabbitMQPublisher>();
 
         return services;
     }
