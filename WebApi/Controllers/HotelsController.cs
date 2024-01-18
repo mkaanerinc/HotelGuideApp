@@ -1,5 +1,8 @@
 ﻿using Application.Features.Hotels.Commands.Create;
 using Application.Features.Hotels.Commands.Delete;
+using Application.Features.Hotels.Queries.GetManagerList;
+using Core.Application.Requests;
+using Core.Application.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +24,15 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Delete([FromBody] DeleteHotelCommand deleteHotelCommand)
         {
             DeletedHotelResponse response = await Mediator.Send(deleteHotelCommand);
+
+            return Ok(response);
+        }
+
+        [HttpGet("GetListManager")]
+        public async Task<IActionResult> GetListManager([FromQuery] PageRequest pageRequest)
+        {
+            GetListManagerQuery getListManagerQuery = new() { PageRequest = pageRequest};
+            GetListResponse<GetListManagerListItemDto> response = await Mediator.Send(getListManagerQuery);
 
             return Ok(response);
         }
