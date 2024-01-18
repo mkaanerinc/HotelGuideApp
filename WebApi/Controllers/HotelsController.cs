@@ -1,5 +1,6 @@
 ﻿using Application.Features.Hotels.Commands.Create;
 using Application.Features.Hotels.Commands.Delete;
+using Application.Features.Hotels.Queries.GetHotelDetailById;
 using Application.Features.Hotels.Queries.GetManagerList;
 using Core.Application.Requests;
 using Core.Application.Responses;
@@ -33,6 +34,15 @@ namespace WebApi.Controllers
         {
             GetListManagerQuery getListManagerQuery = new() { PageRequest = pageRequest};
             GetListResponse<GetListManagerListItemDto> response = await Mediator.Send(getListManagerQuery);
+
+            return Ok(response);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetHotelDetailById([FromRoute] Guid id)
+        {
+            GetHotelDetailByIdQuery getHotelDetailByIdQuery = new() { Id = id };
+            List<GetHotelDetailByIdResponse> response = await Mediator.Send(getHotelDetailByIdQuery);
 
             return Ok(response);
         }
