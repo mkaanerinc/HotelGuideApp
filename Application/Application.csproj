@@ -31,6 +31,8 @@
 
   <ItemGroup>
     <Folder Include="Features\ContactInformations\Queries\" />
+    <Folder Include="Features\Reports\Constants\" />
+    <Folder Include="Features\Reports\Rules\" />
   </ItemGroup>
 
 </Project>
