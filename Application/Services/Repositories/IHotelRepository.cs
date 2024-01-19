@@ -13,4 +13,5 @@ namespace Application.Services.Repositories;
 public interface IHotelRepository : IAsyncRepository<Hotel,Guid>, IRepository<Hotel,Guid>
 {
     Task<List<GetHotelDetailByIdResponse>> GetHotelDetailById(Guid hotelId, CancellationToken cancellationToken = default);
+    Task<List<Hotel>> GetListHotelByLocation(string location, CancellationToken cancellationToken = default);
 }

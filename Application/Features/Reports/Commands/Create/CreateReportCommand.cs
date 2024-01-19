@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Services.MessageBrokers;
+using Application.Services.MessageBrokers.RabbitMQ.Messages;
 
 namespace Application.Features.Reports.Commands.Create;
 
@@ -37,7 +38,9 @@ public class CreateReportCommand : IRequest<CreatedReportResponse>
 
             await _reportRepository.AddAsync(report);
 
-            _messageBrokerHelper.Publish(request.Location);
+            CreateReportDetailMessage createReportDetailMessage = new() { Location = request.Location, ReportId = report.Id};
+
+            _messageBrokerHelper.Publish(createReportDetailMessage);
 
             CreatedReportResponse response = _mapper.Map<CreatedReportResponse>(report);
             return response;

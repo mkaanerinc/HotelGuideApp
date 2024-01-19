@@ -3,6 +3,7 @@ using Application.Services.Repositories;
 using Core.Application.Responses;
 using Core.Persistence.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Persistence.Contexts;
@@ -24,7 +25,7 @@ public class HotelRepository : EfRepositoryBase<Hotel,Guid,BaseDbContext>, IHote
 
     public async Task<List<GetHotelDetailByIdResponse>> GetHotelDetailById(Guid hotelId, CancellationToken cancellationToken = default)
     {
-            var result = await (from hotel in _baseDbContext.Hotels
+        List<GetHotelDetailByIdResponse> result = await (from hotel in _baseDbContext.Hotels
                          join contactInformation in _baseDbContext.ContactInformations
                          on hotel.Id equals contactInformation.HotelId
                          where hotel.Id == hotelId
@@ -39,5 +40,15 @@ public class HotelRepository : EfRepositoryBase<Hotel,Guid,BaseDbContext>, IHote
                          }).ToListAsync();
 
             return result;      
+    }
+
+    public async Task<List<Hotel>> GetListHotelByLocation(string location, CancellationToken cancellationToken = default)
+    {
+        List<Hotel> result = await (from hotel in _baseDbContext.Hotels
+                                    join contactInformation in _baseDbContext.ContactInformations
+                                    on hotel.Id equals contactInformation.HotelId
+                                    where contactInformation.InfoType == InfoType.Location && contactInformation.InfoContent == location
+                                    select hotel).ToListAsync();
+        return result;
     }
 }

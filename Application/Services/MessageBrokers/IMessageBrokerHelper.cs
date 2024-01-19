@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.Services.MessageBrokers.RabbitMQ.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,5 @@ namespace Application.Services.MessageBrokers;
 
 public interface IMessageBrokerHelper
 {
-    void Publish(string location);
+    void Publish(CreateReportDetailMessage createReportDetailMessage);
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Application.Services.MessageBrokers.RabbitMQ.Messages;
+using Microsoft.Extensions.Configuration;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
@@ -22,11 +23,11 @@ public class RabbitMQPublisher : IMessageBrokerHelper
         _brokerOptions = _configuration.GetSection("MessageBrokers:RabbitMQ:MessageBrokerOptions").Get<MessageBrokerOptions>();
     }
 
-    public void Publish(string location)
+    public void Publish(CreateReportDetailMessage createReportDetailMessage)
     {
         var channel = _rabbitmqClientService.Connect();
 
-        var bodyString = JsonSerializer.Serialize(location);
+        var bodyString = JsonSerializer.Serialize(createReportDetailMessage);
         var bodyByte = Encoding.UTF8.GetBytes(bodyString);
 
         var properties = channel.CreateBasicProperties();
