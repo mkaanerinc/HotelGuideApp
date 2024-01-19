@@ -34,6 +34,9 @@
 
   <ItemGroup>
     <Folder Include="Features\ContactInformations\Queries\" />
+    <Folder Include="Features\ReportDetails\Commands\" />
+    <Folder Include="Features\ReportDetails\Constants\" />
+    <Folder Include="Features\ReportDetails\Rules\" />
     <Folder Include="Features\Reports\Constants\" />
     <Folder Include="Features\Reports\Rules\" />
   </ItemGroup>
