@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{1B2952DF-BCB0-41BA-8B9F-487231AD4573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportDetailCreateWorkerService", "ReportDetailCreateWorkerService\ReportDetailCreateWorkerService.csproj", "{001D9DEC-08FB-4140-A50B-739DF584B958}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportDetailCreateWorkerService", "ReportDetailCreateWorkerService\ReportDetailCreateWorkerService.csproj", "{001D9DEC-08FB-4140-A50B-739DF584B958}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{FFA4C295-01D0-4EA4-B3CC-A94385782CE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{001D9DEC-08FB-4140-A50B-739DF584B958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{001D9DEC-08FB-4140-A50B-739DF584B958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{001D9DEC-08FB-4140-A50B-739DF584B958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA4C295-01D0-4EA4-B3CC-A94385782CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA4C295-01D0-4EA4-B3CC-A94385782CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA4C295-01D0-4EA4-B3CC-A94385782CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA4C295-01D0-4EA4-B3CC-A94385782CE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
