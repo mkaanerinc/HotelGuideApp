@@ -8,5 +8,8 @@ global using Microsoft.Extensions.DependencyInjection;
 global using Core.Application.Requests;
 global using Core.Application.Responses;
 global using Domain.Enums;
+global using Domain.Entities;
+global using AutoMapper;
+
 
 
