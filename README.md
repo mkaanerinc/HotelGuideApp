@@ -3,7 +3,7 @@ Case'de **HotelGuideApp** ve **Core.Packages** projeleri bulunmaktadır. Core.Pa
 - Projeyi çalıştırmak için **HotelGuideApp** projesini Visual Studio'da açalım.
 - Project sekmesinden **Configure Startup Projects** sayfasına geçelim.
 - **Multiple Startup Projects** kısmından Worker Service ve API servisini **Start** yapıp **Uygula** butonuna tıklayalım.
-- Son olarak üst kısımdaki sekmede **<Multiple Startup Projects>** yazmalı ardından **Start'a** tıklayıp projeyi çalıştırabiliriz.
+- Son olarak üst kısımdaki sekmede **Multiple Startup Projects** yazmalı ardından **Start'a** tıklayıp projeyi çalıştırabiliriz.
 
 <sup><a href="https://drive.google.com/file/d/1Schrn8JkcyKPZokc77iCGO6S0UsxYJA-/view?usp=sharing:">RAR dosyasını indirmek için tıklayın.</a></sup>
 
